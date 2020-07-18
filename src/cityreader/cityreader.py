@@ -95,7 +95,7 @@ point2 = input("Enter the second point as: 'lat, lon' --> ").split(",")
 lat1 = float(point1[0])
 lon1 = float(point1[1])
 lat2 = float(point2[0])
-lon2 = float(point2[0])
+lon2 = float(point2[1])
 
 #Print list of cities that are within the input grid
 for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
