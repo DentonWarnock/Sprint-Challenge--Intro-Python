@@ -1,7 +1,6 @@
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
-
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
 #
@@ -83,5 +82,21 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
+  for city in cities:
+    if lat1 < city.lat < lat2 or lat2 < city.lat < lat1:
+      if lon1 < city.lon < lon2 or lon2 < city.lon < lon1:
+        within.append(city)     
 
   return within
+
+#Get 2 points from the user to use as the grid
+point1 = input("Enter the first point as: 'lat, lon' --> ").split(",")
+point2 = input("Enter the second point as: 'lat, lon' --> ").split(",")
+lat1 = float(point1[0])
+lon1 = float(point1[1])
+lat2 = float(point2[0])
+lon2 = float(point2[0])
+
+#Print list of cities that are within the input grid
+for city in cityreader_stretch(lat1, lon1, lat2, lon2, cities):
+  print(city)
